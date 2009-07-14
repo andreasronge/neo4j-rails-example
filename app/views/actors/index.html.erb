@@ -1,0 +1,20 @@
+<h1>Listing actors</h1>
+
+   <table>
+     <tr>
+       <th>Name</th>
+     </tr>
+
+     <% for actor in @actors %>
+       <tr>
+         <td><%=h actor.name %></td>
+         <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
+         <td><%= link_to 'Show', actor %></td>
+         <td><%= link_to 'Destroy', actor, :confirm => 'Are you sure?', :method => :delete %></td>
+       </tr>
+     <% end %>
+   </table>
+
+   <br />
+
+   <%= link_to 'New actor', new_actor_path %>
