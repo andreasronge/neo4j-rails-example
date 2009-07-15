@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
 
   config.frameworks -= [ :active_record ] #, :active_resource, :action_mailer ]
-  config.gem "neo4j", :version => "0.3.0"
+  config.gem "neo4j" #, :version => "0.3.0"
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer

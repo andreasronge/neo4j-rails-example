@@ -3,4 +3,4 @@ class Actor
     property :name, :phone, :salary
     has_n(:acted_in).to(Movie).relationship(Role)
     index :name
-  end
+end

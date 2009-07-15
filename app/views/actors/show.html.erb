@@ -10,4 +10,31 @@
        Salary: <%= @actor.salary%> <br/>
      </p>
 
+<h2>Related Movies</h2>
+<%  @actor.relationships.each do |relationship| %>
+  <p>
+    <%= relationship.end_node.title %>
+    <%= relationship.character %>
+    <%= link_to 'Unlink', {:action => "unlink", :movie_id => relationship.start_node.neo_node_id, :id => relationship.end_node.neo_node_id} %>
+  </p>
+<% end %>
+<h2>All Movies</h2>
+  <table>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%= link_to movie.title, :controller => "movies", :action => "show", :id => movie.neo_node_id.to_s %>
+        </td>
+        <td>
+          <% form_tag "link", :id => @actor.neo_node_id.to_s do %>
+            <%= hidden_field_tag "movie_id", movie.neo_node_id.to_s %>
+            <%= hidden_field_tag "id", @actor.neo_node_id.to_s %>
+            <%= text_field_tag 'character', 'insert character name' %>
+            <%= submit_tag "link", :class=> "submit_link" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
    <%= link_to 'Back', actors_path %>
