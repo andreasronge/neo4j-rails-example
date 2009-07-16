@@ -10,7 +10,7 @@
        Salary: <%= @actor.salary%> <br/>
      </p>
 
-<h2>Related Movies</h2>
+<h2>Related Movies -</h2>
 <%  @actor.relationships.each do |relationship| %>
   <p>
     <%= relationship.end_node.title %>

@@ -10,11 +10,11 @@
    <%= link_to 'Back', movies_path %>
 
 <h2>Related Actors</h2>
-<%  @movie.relationships.each do |relationship| %>
+<%  @movie.relationships.incoming(:acted_in).each do |relationship| %>
   <p>
-    <%= relationship.end_node.name %>
+    <%= relationship.start_node.name %>
     <%= relationship.character %>
-    <%= link_to 'Unlink', {:action => "unlink", :id => relationship.start_node.neo_node_id, :actor_id => relationship.end_node.neo_node_id} %>
+    <%= link_to 'Unlink', {:action => "unlink", :id => relationship.end_node.neo_node_id, :actor_id => relationship.start_node.neo_node_id} %>
   </p>
 <% end %>
 <h2>All Actors</h2>
