@@ -48,9 +48,6 @@ class MoviesController < ApplicationController
     if @actor.relationships[@movie] then
       @actor.relationships[@movie].delete
     end
-    #if @movie.relationships[@actor] then
-    #  @movie.relationships[@actor].delete
-    #end
     redirect_to(@movie)
   end
 

@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-  before_filter :find_actor, :only => [:show, :edit, :update, :destroy, :link, :unlink]
+#  before_filter :find_actor, :only => [:show, :edit, :update, :destroy, :link, :unlink]
   around_filter :neo_tx
 
 
@@ -36,8 +36,6 @@ class ActorsController < ApplicationController
     @movie = Neo4j.load(params[:movie_id])
     rel1 = @actor.acted_in.new(@movie)
     rel1.character = params[:character]
-    #rel2 = @movie.has_actor.new(@actor)
-    #rel2.character = params[:character]
     redirect_to(@actor)
   end
   
@@ -46,9 +44,6 @@ class ActorsController < ApplicationController
     if @actor.relationships[@movie] then
       @actor.relationships[@movie].delete
     end
-    #if @movie.relationships[@actor] then
-    #  @movie.relationships[@actor].delete
-    #end
     redirect_to(@actor)
   end
 
@@ -66,6 +61,7 @@ class ActorsController < ApplicationController
 
   def neo_tx
     Neo4j::Transaction.new
+    @actor = Neo4j.load(params[:id]) if params[:id]
     yield
     Neo4j::Transaction.finish
   end

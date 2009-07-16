@@ -13,7 +13,7 @@
 <%  @movie.relationships.incoming(:acted_in).each do |relationship| %>
   <p>
     <%= relationship.start_node.name %>
-    <%= relationship.character %>
+    (<%= relationship.character %>)
     <%= link_to 'Unlink', {:action => "unlink", :id => relationship.end_node.neo_node_id, :actor_id => relationship.start_node.neo_node_id} %>
   </p>
 <% end %>
