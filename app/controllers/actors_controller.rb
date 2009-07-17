@@ -40,12 +40,8 @@ class ActorsController < ApplicationController
   end
   
   def unlink
-    @movie = Neo4j.load(params[:movie_id])
-    @actor.relationships.each do |relationship|
-      if (relationship.neo_relationship_id.to_s == params[:rel_id]) then
-        relationship.delete
-      end
-    end
+    relationship = Neo4j.load_relationship(params[:rel_id])
+    relationship.delete
     redirect_to(@actor)
   end
 
