@@ -14,7 +14,7 @@
   <p>
     <%= relationship.start_node.name %>
     (<%= relationship.character %>)
-    <%= link_to 'Unlink', {:action => "unlink", :id => relationship.end_node.neo_node_id, :actor_id => relationship.start_node.neo_node_id, :character => relationship.character} %>
+    <%= link_to 'Unlink', {:action => "unlink", :id => relationship.end_node.neo_node_id, :actor_id => relationship.start_node.neo_node_id, :rel_id => relationship.neo_relationship_id} %>
   </p>
 <% end %>
 <h2>All Actors</h2>
