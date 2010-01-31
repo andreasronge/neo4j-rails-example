@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie.delete
+    @movie.del
     redirect_to(movies_url)
   end
 
@@ -37,15 +37,15 @@ class MoviesController < ApplicationController
   end
   
   def link
-    @actor = Neo4j.load(params[:actor_id])
+    @actor = Neo4j.load_node(params[:actor_id])
     rel1 = @actor.acted_in.new(@movie)
     rel1.character = params[:character]
     redirect_to(@movie)
   end
   
   def unlink
-    relationship = Neo4j.load_relationship(params[:rel_id])
-    relationship.delete
+    relationship = Neo4j.load_rel(params[:rel_id])
+    relationship.del
     redirect_to(@movie)
   end
 
@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
 
   def neo_tx
     Neo4j::Transaction.new
-    @movie = Neo4j.load(params[:id]) if params[:id]
+    @movie = Neo4j.load_node(params[:id]) if params[:id]
     yield
     Neo4j::Transaction.finish
   end
