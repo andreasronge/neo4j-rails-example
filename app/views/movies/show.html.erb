@@ -12,7 +12,7 @@
 <h2>Related Actors</h2>
 <%  @movie.actors_rels.each do |relationship| %>
   <p>
-    <%= relationship.start_node[:name] %>
+    <%= relationship.start_node.name %>
     (<%= relationship.character %>)
     <%= link_to 'Unlink', {:action => "unlink", :id => relationship.end_node.neo_id, :actor_id => relationship.start_node.neo_id, :rel_id => relationship.neo_id} %>
   </p>
