@@ -1,6 +1,6 @@
-class Actor
-    include Neo4j::NodeMixin
-    property :name, :phone, :salary
-    has_n(:acted_in).to(Movie).relationship(Role)
-    index :name
+class Actor < Neo4j::Model
+  rule(:all)
+  
+  property :name
+  property :born
 end

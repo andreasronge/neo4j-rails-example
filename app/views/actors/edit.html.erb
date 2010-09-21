@@ -1,22 +1,6 @@
-<h1>Edit Actor</h1>
+<h1>Editing actor</h1>
 
-   <% form_for(@actor) do |f| %>
-     <p>
-       <%= f.label :name %><br />
-       <%= f.text_field :name %>
-     </p>
-     <p>
-       <%= f.label :phone %><br />
-       <%= f.text_field :phone %>
-     </p>
-     <p>
-       <%= f.label :salary%><br />
-       <%= f.text_field :salary %>
-     </p>
-     <p>
-       <%= f.submit "Update" %>
-     </p>
+<%= render 'form' %>
 
-   <% end %>
-
-   <%= link_to 'Back', actors_path %>
+<%= link_to 'Show', @actor %> |
+<%= link_to 'Back', actors_path %>

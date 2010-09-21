@@ -1,66 +1,49 @@
 class ActorsController < ApplicationController
-#  before_filter :find_actor, :only => [:show, :edit, :update, :destroy, :link, :unlink]
-  around_filter :neo_tx
-
-
+  around_filter Neo4j::Rails::Transaction, :only => [:edit, :update, :destroy, :create]
+  
   def index
-    @actors = Actor.all.nodes
-  end
-
-  def create
-    @actor = Actor.new
-    @actor.update(params[:actor])
-    flash[:notice] = 'Actor was successfully created.'
-    redirect_to(@actor)
-  end
-
-  def update
-    @actor.update(params[:actor])
-    flash[:notice] = 'Actor was successfully updated.'
-    redirect_to(@actor)
-  end
-
-  def destroy
-    @actor.del
-    redirect_to(actors_url)
-  end
-
-  def edit
-  end
-
-  def show
-    @movies = Movie.all.nodes
-  end
-
-  def link
-    @movie = Neo4j.load_node(params[:movie_id])
-    rel1 = @actor.acted_in.new(@movie)
-    rel1.character = params[:character]
-    redirect_to(@actor)
+    @actors = Actor.all
   end
   
-  def unlink
-    relationship = Neo4j.load_rel(params[:rel_id])
-    relationship.del
-    redirect_to(@actor)
+  def show
+    @actor = Actor.find(params[:id])
+    puts "FOUND ACTOR #{@actor}"
   end
-
+  
   def new
-    @actor = Actor.value_object.new
+    @actor = Actor.new
   end
-
-  private
-
-  def find_actor
-    @actor = Neo4j.load_node(params[:id])
+  
+  def edit
+    @actor = Actor.find(params[:id])
   end
-
-  private
-
-  def neo_tx
-    Neo4j::Transaction.new
-    @actor = Neo4j.load_node(params[:id]) if params[:id]
-    yield
-    Neo4j::Transaction.finish
+  
+  def create
+    @actor = Actor.new(params[:actor])
+    
+    if @actor.save
+      redirect_to(@actor, :notice => 'Actor was successfully created.')
+    else
+      render :action => "new"
+    end
+    
+  end
+  
+  
+  def update
+    @actor = Actor.find(params[:id])
+    if @actor.update_attributes(params[:actor])
+      redirect_to(@actor, :notice => 'Actor was successfully updated.') 
+    else
+      render :action => "edit"
+    end
+  end
+  
+  
+   def destroy
+    @actor = Actor.find(params[:id])
+    @actor.destroy
+    redirect_to(actors_url)
   end
 end
+
