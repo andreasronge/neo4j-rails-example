@@ -24,7 +24,6 @@ GEM
       activesupport (= 3.0.0)
       arel (~> 1.0.0)
       tzinfo (~> 0.3.23)
-    activerecord-jdbc-adapter (0.9.7-java)
     activeresource (3.0.0)
       activemodel (= 3.0.0)
       activesupport (= 3.0.0)
@@ -35,20 +34,19 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.4.1)
-    jdbc-sqlite3 (3.6.3.054)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    neo4j (1.0.0.beta.1)
+    neo4j (1.0.0.beta.7)
       activemodel (~> 3.0.0)
       railties (~> 3.0.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
-    rack-test (0.5.4)
+    rack-test (0.5.6)
       rack (>= 1.0)
     rails (3.0.0)
       actionmailer (= 3.0.0)
@@ -64,7 +62,7 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
-    thor (0.14.1)
+    thor (0.14.2)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
@@ -73,7 +71,5 @@ PLATFORMS
   java
 
 DEPENDENCIES
-  activerecord-jdbc-adapter
-  jdbc-sqlite3
-  neo4j (= 1.0.0.beta.1)
+  neo4j (= 1.0.0.beta.7)
   rails (= 3.0.0)

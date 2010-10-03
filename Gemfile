@@ -2,18 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'neo4j', '1.0.0.beta.7'
 
-if defined?(JRUBY_VERSION)
-  gem 'activerecord-jdbc-adapter'
-  gem 'jdbc-sqlite3', :require => false
-else
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-end
-
-
-gem 'neo4j', '1.0.0.beta.1'
 # Use unicorn as the web server
 # gem 'unicorn'
 

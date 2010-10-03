@@ -7,7 +7,6 @@ class ActorsController < ApplicationController
   
   def show
     @actor = Actor.find(params[:id])
-    puts "FOUND ACTOR #{@actor}"
   end
   
   def new
