@@ -1,6 +1,6 @@
-[Documentation](http://neo4j.rubyforge.org/guides/index.html) for Neo4j.rb.
+{Documentation}[http://neo4j.rubyforge.org/guides/index.html] for Neo4j.rb.
 
-[Documentation](http://neo4j.rubyforge.org/guides/rails3.html) for integrating Neo4j and Rails.
+{Documentation}[http://neo4j.rubyforge.org/guides/rails3.html] for integrating Neo4j and Rails.
 
 To work with Neo4j::Model objects in the console, you have to wrap your operations in a Neo4j::Transaction.
 
