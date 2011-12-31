@@ -5,12 +5,17 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
   end
 
+  # Requires that the params :movie_id and :actor_id be set.
+  # Since a role is a relationship, it does not make sense
+  # to create one without knowing the movie and actor.
   def new
     @movie = Movie.find(params[:movie_id])
     @actor = Actor.find(params[:actor_id])
     @role = Role.new
   end
 
+  # Requires that the params :movie_id and :actor_id be set,
+  # just like Role#new.  See above.
   def create
     @movie = Movie.find(params[:movie_id])
     @actor = Actor.find(params[:actor_id])

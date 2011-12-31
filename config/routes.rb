@@ -3,12 +3,14 @@ Neo4jRailsExample::Application.routes.draw do
 
   resources :actors do
     member do
+      # Lets you pick a movie to associate with this actor.
       get :add_role
     end
   end
 
   resources :movies do
     member do
+      # Lets you pick an actor to associate with this movie.
       get :add_role
     end
   end
