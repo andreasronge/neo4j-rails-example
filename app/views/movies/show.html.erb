@@ -10,8 +10,16 @@
     <td>Year</td>
     <td><%= @movie.year %></td>
   </tr>
-    
 </table>    
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
+
+<h3>Actors</h3>
+<table>
+  <% @movie.actors_rels.each do |r| %>
+    <tr>
+      <td><%= link_to(sanitize(r.start_node.name), actor_path(r.start_node)) %> as <%= sanitize r.as %></td>
+    </tr>
+  <% end %>
+</table>

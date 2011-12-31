@@ -1,7 +1,9 @@
 Neo4jRailsExample::Application.routes.draw do
   resources :users
 
-  resources :actors
+  resources :actors do
+    #get 'actor/:a_id/movie/:m_id'
+  end
 
   resources :movies
 
