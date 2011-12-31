@@ -2,10 +2,20 @@ Neo4jRailsExample::Application.routes.draw do
   resources :users
 
   resources :actors do
-    #get 'actor/:a_id/movie/:m_id'
+    member do
+      get :add_role
+    end
   end
 
-  resources :movies
+  resources :movies do
+    member do
+      get :add_role
+    end
+  end
+
+  resources :roles, :except => [:create] do
+  end
+  post 'roles/:actor_id/:movie_id' => 'roles#create'
 
   root :to => "actors#index"
 
