@@ -1,0 +1,3 @@
+log/*
+tmp/*
+db/neo4j*
