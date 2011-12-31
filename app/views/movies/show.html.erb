@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Movie</h2>
+<table>
+  <tr>
+    <td>Title</td>
+    <td><%= @movie.title %></td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td><%= @movie.year %></td>
+  </tr>
+    
+</table>    
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
