@@ -19,7 +19,7 @@
 <table>
   <% @movie.actors_rels.each do |r| %>
     <tr>
-      <td><%= link_to(sanitize(r.start_node.name), actor_path(r.start_node)) %> as <%= sanitize r.as %></td>
+      <td><%= link_to r.start_node.name, actor_path(r.start_node) %> as <%= link_to r.as, role_path(r) %></td>
     </tr>
   <% end %>
 </table>

@@ -1,3 +1,4 @@
+<div><%= @actor.name %> acted in <i><%= @movie.title %></i> as...</div>
 <%= form_for(@role) do |f| %>
   <% if @role.errors.any? %>
     <div id="error_explanation">

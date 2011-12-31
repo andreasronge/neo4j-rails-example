@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  around_filter Neo4j::Rails::Transaction, :only => [:edit, :create, :update, :destroy]
   
   def index
     @movies = Movie.all
