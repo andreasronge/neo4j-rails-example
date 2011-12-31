@@ -13,9 +13,10 @@ Neo4jRailsExample::Application.routes.draw do
     end
   end
 
-  resources :roles, :except => [:create] do
+  resources :roles, :except => [:new, :create] do
   end
-  post 'roles/:actor_id/:movie_id' => 'roles#create'
+  get 'roles/:actor_id/:movie_id' => 'roles#new', :as => :new_role
+  post 'roles/:actor_id/:movie_id' => 'roles#create', :as => :roles
 
   root :to => "actors#index"
 

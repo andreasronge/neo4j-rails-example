@@ -1,0 +1,6 @@
+<h2>Role</h2>
+<div>
+  <%= link_to @role.start_node.name, actor_path(@role.start_node) %>
+  acted in 
+  <i><%= link_to @role.end_node.title, movie_path(@role.end_node) %></i>.
+</div>

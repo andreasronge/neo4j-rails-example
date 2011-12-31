@@ -1,5 +1,4 @@
 class MoviesController < ApplicationController
-  around_filter Neo4j::Rails::Transaction, :only => [:edit, :update, :destroy, :create]
   
   def index
     @movies = Movie.all
@@ -43,6 +42,11 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to(movies_url)
+  end
+
+  def add_role
+    @movie = Movie.find(params[:id])
+    @actors = Actor.all
   end
 end
 
