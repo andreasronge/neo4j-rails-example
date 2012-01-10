@@ -15,3 +15,14 @@
 
 <%= link_to 'Edit', edit_actor_path(@actor) %> |
 <%= link_to 'Back', actors_path %>
+
+<h3>Roles</h3>
+<table>
+  <% @actor.roles_rels.each do |role| %>
+    <tr>
+      <td><%= link_to role.as, role_path(role) %> in <%= link_to(role.end_node.title, movie_path(role.end_node)) %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Role', add_role_actor_path(@actor) %>

@@ -1,0 +1,6 @@
+<h2>New Role for <%= @actor.name %></h2>
+<div><%= @actor.name %> acted in...</div>
+<% @movies.each do |movie| %>
+  <div><%= link_to movie.title, roles_path(@actor, movie) %></div>
+<% end %>
+

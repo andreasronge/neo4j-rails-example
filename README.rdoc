@@ -1,0 +1,11 @@
+=== About
+
+Neo4j is an open source graph database, which is available to Ruby through the {Neo4j.rb}[https://github.com/andreasronge/neo4j] gem. 
+
+Neo4j::Rails::Model object implement most ActiveModel features, making it easy to integrate Neo4j into a Rails application.
+
+=== Documentation
+
+{Documentation}[http://neo4j.rubyforge.org/guides/index.html] for Neo4j.rb.
+
+{Documentation}[http://neo4j.rubyforge.org/guides/rails3.html] for integrating Neo4j and Rails.

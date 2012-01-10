@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Role</h2>
+<div>
+  <%= link_to @role.start_node.name, actor_path(@role.start_node) %>
+  played
+  <%= @role.as %>
+  in 
+  <i><%= link_to @role.end_node.title, movie_path(@role.end_node) %></i>.
+</div>
+
+<div style="margin-top: 20px;">
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Destroy', role_path(@role), :confirm => 'Are you sure?', :method => :delete %>
+</div>

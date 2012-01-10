@@ -1,0 +1,4 @@
+<h2>Add an Actor for <i><%= @movie.title %></i></h2>
+<% @actors.each do |actor| %>
+  <div><%= link_to actor.name, new_role_path(actor, @movie) %></div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Movie</h2>
+<table>
+  <tr>
+    <td>Title</td>
+    <td><%= @movie.title %></td>
+  </tr>
+  <tr>
+    <td>Year</td>
+    <td><%= @movie.year %></td>
+  </tr>
+</table>    
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
+
+<h3>Actors</h3>
+<table>
+  <% @movie.actors_rels.each do |r| %>
+    <tr>
+      <td><%= link_to role.start_node.name, actor_path(role.start_node) %> as <%= link_to role.as, role_path(r) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Role', add_role_movie_path(@movie) %>
