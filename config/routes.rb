@@ -1,7 +1,24 @@
 Neo4jRailsExample::Application.routes.draw do
   resources :users
 
-  resources :actors
+  resources :actors do
+    member do
+      # Lets you pick a movie to associate with this actor.
+      get :add_role
+    end
+  end
+
+  resources :movies do
+    member do
+      # Lets you pick an actor to associate with this movie.
+      get :add_role
+    end
+  end
+
+  resources :roles, :except => [:new, :create] do
+  end
+  get 'roles/:actor_id/:movie_id' => 'roles#new', :as => :new_role
+  post 'roles/:actor_id/:movie_id' => 'roles#create', :as => :roles
 
   root :to => "actors#index"
 
