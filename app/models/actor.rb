@@ -1,6 +1,4 @@
-class Actor < Neo4j::Model
-  rule(:all)
-
+class Actor < Neo4j::Rails::Model
   property :name
   property :born
 

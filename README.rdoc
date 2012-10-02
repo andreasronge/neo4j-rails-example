@@ -7,3 +7,22 @@ Neo4j::Rails::Model object implement most ActiveModel features, making it easy t
 === Documentation
 
 {Documentation}[https://github.com/andreasronge/neo4j/wiki] for Neo4j.rb.
+
+
+== To Run
+
+rvm use jruby-1.6.7
+
+bundle install
+
+rails s
+
+open browser at localhost:3000
+
+=== neo4j-admin
+
+Notice that the neo4j-admin gem is included, which make it possible to visualize the graph database.
+
+  Open a browser localhost:7474
+
+Notice that the neo4j-admin gem does not work with JRuby 1.7, see https://github.com/andreasronge/neo4j-admin/issues/8

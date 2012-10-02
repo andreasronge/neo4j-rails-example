@@ -17,9 +17,9 @@
 
 <h3>Actors</h3>
 <table>
-  <% @movie.actors_rels.each do |r| %>
+  <% @movie.actors_rels.each do |role| %>
     <tr>
-      <td><%= link_to role.start_node.name, actor_path(role.start_node) %> as <%= link_to role.as, role_path(r) %></td>
+      <td><%= link_to role.start_node.name, actor_path(role.start_node) %> as <%= link_to role.as, role_path(role) %></td>
     </tr>
   <% end %>
 </table>

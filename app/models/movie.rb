@@ -1,6 +1,4 @@
-class Movie < Neo4j::Model
-  rule(:all)
-
+class Movie < Neo4j::Rails::Model
   property :title
   property :year
 
